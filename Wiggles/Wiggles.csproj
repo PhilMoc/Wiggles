@@ -111,11 +111,6 @@
     <Compile Include="GameConstants.cs" />
     <Compile Include="GameScreens\BoilerScreen.cs" />
     <Compile Include="GameSettings.cs" />
-    <Compile Include="Input\GamePadDevice.cs" />
-    <Compile Include="Input\InputDevice.cs" />
-    <Compile Include="Input\InputUtil.cs" />
-    <Compile Include="Input\KeyboardDevice.cs" />
-    <Compile Include="Input\MouseDevice.cs" />
     <Compile Include="MenuControls\AudioMenuControl.cs" />
     <Compile Include="MenuControls\ChangeMusicVolumeControl.cs" />
     <Compile Include="MenuControls\PreviousMenuControl.cs" />
