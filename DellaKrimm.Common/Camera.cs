@@ -12,6 +12,7 @@ namespace DellaKrimm.Common
 
         public Camera(Game game, Vector3 position, Vector3 target, Vector3 up)
         {
+            this.Position = position;
             this.View = Matrix.CreateLookAt(position, target, up);
 
             this.Projection = Matrix.CreatePerspectiveFieldOfView(
@@ -24,5 +25,7 @@ namespace DellaKrimm.Common
         public void Initialize()
         {
         }
+
+        public Vector3 Position { get; set; }
     }
 }

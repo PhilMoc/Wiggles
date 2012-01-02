@@ -49,7 +49,7 @@ namespace Wiggles
             Settings = GameSettings.LoadSettings();
             Camera = new Camera(
                 this,
-                new Vector3(0, 0, 5),
+                new Vector3(750, 750, 2500),
                 Vector3.Zero,
                 Vector3.Up);
         }
@@ -94,7 +94,8 @@ namespace Wiggles
             ScreenManager.Manager.UpdateCurrent(gameTime);
             SoundManager.Manager.Volume = Settings.MusicVolume;
             HandleKeys();
-
+            HandleMouse();
+            
             base.Update(gameTime);
         }
 
@@ -116,6 +117,18 @@ namespace Wiggles
             ScreenManager.Manager.HandleInput(keyboardState, isNewKey);
 
             previousKeyboardState = keyboardState;
+        }
+
+        MouseState previousMouseState;
+
+        private void HandleMouse()
+        {
+            MouseState mouseState = Mouse.GetState();
+            bool isNewState = previousMouseState == mouseState;
+
+            ScreenManager.Manager.HandleMouseInput(mouseState, previousMouseState);
+
+            previousMouseState = mouseState;
         }
 
         #region Properties

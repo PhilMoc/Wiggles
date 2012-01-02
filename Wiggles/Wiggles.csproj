@@ -107,7 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BoilerShapes\Triangle.cs" />
+    <Compile Include="BoilerShapes\Wheel.cs" />
     <Compile Include="GameConstants.cs" />
     <Compile Include="GameScreens\BoilerScreen.cs" />
     <Compile Include="GameSettings.cs" />

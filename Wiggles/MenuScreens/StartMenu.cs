@@ -32,7 +32,6 @@ namespace Wiggles.Menus
             SelectedControl = Controls[SelectedItemIndex];
             AddControl(new AudioMenuControl(game));
             AddControl(new QuitGameControl(game));
-            SoundManager.Manager.Start();
         }
     }
 }

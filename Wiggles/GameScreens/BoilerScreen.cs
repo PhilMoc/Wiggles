@@ -9,13 +9,14 @@ using Wiggles.Menus;
 
 namespace Wiggles
 {
-    public class BoilerScreen : GameScreen
+    public class BoilerScreen : GameScreen, IMouseControllable
     {
         public BoilerScreen(Game game)
             :base(game)
         {
+            SoundManager.Manager.SetBackgroundSound("Music/yahhoo", false);
             gameObjects = new List<DellaKrimm.Common.Interfaces.IDrawable>();
-            gameObjects.Add(new Triangle(game.GraphicsDevice));
+            gameObjects.Add(new Wheel());
         }
 
         public void AddRenderable(DellaKrimm.Common.Interfaces.IDrawable drawable)
@@ -46,6 +47,30 @@ namespace Wiggles
             ScreenManager.Manager.Pop(this);
         }
 
+        public void HandleInput(MouseState currentState, MouseState previousState)
+        {
+            Vector3 cameraPos = TowerAssault.GameInstance.Camera.Position;
+
+            if (currentState.ScrollWheelValue > previousState.ScrollWheelValue)
+            {
+                TowerAssault.GameInstance.Camera.Position = new Vector3(cameraPos.X, cameraPos.Y, cameraPos.Z + 100);
+            }
+            else if (currentState.ScrollWheelValue < previousState.ScrollWheelValue)
+            {
+                TowerAssault.GameInstance.Camera.Position = new Vector3(cameraPos.X, cameraPos.Y, cameraPos.Z - 100);
+            }
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+
+
+
+        }
+
         protected List<DellaKrimm.Common.Interfaces.IDrawable> gameObjects;
+
+        public bool RequiresNewMouseState { get { return false; } }
     }
 }

@@ -49,9 +49,11 @@ namespace DellaKrimm.Common
 
         public SoundEffectInstance SetBackgroundSound(string contentName, bool loop)
         {
+            Stop();
             this.backgroundSoundEffect = Content.Load<SoundEffect>(contentName);
             this.backgroundSoundEffectInstance = this.backgroundSoundEffect.CreateInstance();
             this.backgroundSoundEffectInstance.IsLooped = loop;
+            Start();
             return this.backgroundSoundEffectInstance;
         }
 

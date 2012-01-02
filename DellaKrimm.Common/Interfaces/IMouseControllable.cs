@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace DellaKrimm.Common.Interfaces
 {
-    interface IMouseControllable
+    public interface IMouseControllable
     {
-        bool RequiresNewClick { get; }
-        void HandleInput(MouseState mouseState, bool isNewClick);
+        bool RequiresNewMouseState { get; }
+        void HandleInput(MouseState currentState, MouseState previousState);
     }
 }

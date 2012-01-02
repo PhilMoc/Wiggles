@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using DellaKrimm.Common.Interfaces;
 
 namespace DellaKrimm.Common
 {
@@ -75,6 +76,14 @@ namespace DellaKrimm.Common
         public void HandleInput(KeyboardState keyBoard, bool isNewKey)
         {
             CurrentScreen.HandleKeys(keyBoard, isNewKey);
+        }
+
+        public void HandleMouseInput(MouseState current, MouseState previous)
+        {
+            if (CurrentScreen is IMouseControllable)
+            {
+                (CurrentScreen as IMouseControllable).HandleInput(current, previous);
+            }
         }
 
         private static ScreenManager manager;
